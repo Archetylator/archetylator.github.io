@@ -1,0 +1,109 @@
+---
+const { title = "archetylator" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content="Personal site" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Syne:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f5f4ef;
+        --paper: #fffef7;
+        --ink: #101010;
+        --muted: #57544f;
+        --accent: #ff5a2f;
+        --accent-2: #0d8b8b;
+        --line: #e4ded3;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+      }
+
+      body {
+        font-family: "Outfit", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 10% -10%, #ffc35f 0%, transparent 35%),
+          radial-gradient(circle at 100% 20%, #a6f0ef 0%, transparent 30%),
+          var(--bg);
+      }
+
+      .frame {
+        width: min(980px, calc(100% - 2rem));
+        margin: 2rem auto;
+        background: color-mix(in srgb, var(--paper) 85%, white);
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        box-shadow: 0 10px 40px rgba(14, 9, 2, 0.08);
+        overflow: hidden;
+      }
+
+      header {
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .brand {
+        font-family: "Syne", sans-serif;
+        font-size: 1.05rem;
+        letter-spacing: 0.02em;
+      }
+
+      .pill {
+        font-size: 0.8rem;
+        background: color-mix(in srgb, var(--accent) 16%, white);
+        border: 1px solid color-mix(in srgb, var(--accent) 26%, white);
+        color: color-mix(in srgb, var(--accent) 80%, black);
+        border-radius: 999px;
+        padding: 0.35rem 0.7rem;
+      }
+
+      main {
+        padding: 2.5rem 1.5rem 3rem;
+      }
+
+      @media (max-width: 720px) {
+        .frame {
+          width: calc(100% - 1rem);
+          margin: 0.5rem auto;
+          border-radius: 18px;
+        }
+
+        main {
+          padding: 2rem 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <header>
+        <div class="brand">archetylator</div>
+        <div class="pill">personal site</div>
+      </header>
+      <main>
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>

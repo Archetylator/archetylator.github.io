@@ -1,0 +1,158 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="archetylator">
+  <section class="hero">
+    <p class="eyebrow">Czesc, jestem archetylator.</p>
+    <h1>
+      Prosta strona osobista,
+      <span>nowoczesna i szybka.</span>
+    </h1>
+    <p class="lead">
+      Ten serwis jest zbudowany jako static site z Astro: minimalny stack, zero zbednej zlozonosci i latwe
+      wdrazanie na GitHub Pages.
+    </p>
+    <nav>
+      <a class="btn solid" href="https://github.com/archetylator">GitHub</a>
+      <a class="btn ghost" href="mailto:you@example.com">Kontakt</a>
+    </nav>
+  </section>
+
+  <section class="grid">
+    <article>
+      <h2>Blog / Notatki</h2>
+      <p>Dodaj pozniej podstrony w <code>src/pages/</code>, np. <code>notes.astro</code>.</p>
+    </article>
+    <article>
+      <h2>Projekty</h2>
+      <p>Opisuj projekty krotko i konkretnie. Astro wygeneruje gotowe statyczne pliki.</p>
+    </article>
+    <article>
+      <h2>Stack</h2>
+      <p>Astro + plain CSS + GitHub Actions. Malo zaleznosci, szybkie dzialanie.</p>
+    </article>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    animation: rise 700ms ease both;
+  }
+
+  .eyebrow {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent-2);
+    margin: 0 0 1rem;
+    font-weight: 600;
+  }
+
+  h1 {
+    margin: 0;
+    line-height: 1.05;
+    font-family: "Syne", sans-serif;
+    font-size: clamp(2rem, 7vw, 4.2rem);
+  }
+
+  h1 span {
+    color: var(--accent);
+    display: block;
+  }
+
+  .lead {
+    max-width: 62ch;
+    margin: 1.3rem 0 1.8rem;
+    color: var(--muted);
+    font-size: clamp(1rem, 2vw, 1.18rem);
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 2.3rem;
+  }
+
+  .btn {
+    text-decoration: none;
+    padding: 0.75rem 1.1rem;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: transform 150ms ease;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .solid {
+    background: var(--ink);
+    color: white;
+  }
+
+  .ghost {
+    border: 1px solid var(--line);
+    color: var(--ink);
+    background: white;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.9rem;
+  }
+
+  article {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 1rem;
+    background: color-mix(in srgb, white 87%, #fff3d5);
+    animation: rise 700ms ease both;
+  }
+
+  article:nth-child(2) {
+    animation-delay: 80ms;
+  }
+
+  article:nth-child(3) {
+    animation-delay: 160ms;
+  }
+
+  h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.05rem;
+  }
+
+  p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+      monospace;
+    background: #f0ebe0;
+    border-radius: 6px;
+    padding: 0.08rem 0.35rem;
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 860px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
