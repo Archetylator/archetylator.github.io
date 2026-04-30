@@ -1,0 +1,28 @@
+---
+interface Post {
+  id: string;
+  data: {
+    title: string;
+    date: Date;
+  };
+}
+interface Props {
+  posts: Post[];
+  limit?: number;
+}
+const { posts, limit = 3 } = Astro.props;
+const shown = posts.slice(0, limit);
+---
+
+<ul style="padding-left: 1.2rem;">
+  {
+    shown.map((post) => (
+      <li style="margin-bottom: 0.4rem;">
+        <a href={`/blog/${post.id}`}>{post.data.title}</a>{" "}
+        <span style="color: #7a7570; font-size: 0.78rem; font-family: 'JetBrains Mono', 'Courier New', monospace;">
+          {post.data.date.toISOString().slice(0, 10)}
+        </span>
+      </li>
+    ))
+  }
+</ul>

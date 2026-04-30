@@ -1,5 +1,8 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import LandingLayout from "../layouts/LandingLayout.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import WritingList from "../components/WritingList.astro";
+import ProjectCard from "../components/ProjectCard.astro";
 import { getCollection } from "astro:content";
 
 const posts = (await getCollection("blog"))
@@ -7,36 +10,126 @@ const posts = (await getCollection("blog"))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<BaseLayout lang="pl">
-  <h1>Marcin Syngajewski</h1>
-  <p>
-    Jestem programistą stron internetowych pracującym w Ruby on Rails od 2013
-    roku. Sporo koduję również w lingua franca Internetu, w almighty JavaScript.
-  </p>
-  <p>
-    <a href="https://github.com/Archetylator">GitHub</a>,
-    <a href="https://stackoverflow.com/users/3459543/archetylator"
-      >Stack Overflow</a
-    >,
-    <a href="https://linkedin.com/in/marcin-syngajewski">LinkedIn</a>,
-    <a href="https://www.upwork.com/freelancers/~018a75323f90fef96f">Upwork</a>.
-  </p>
+<LandingLayout
+  lang="pl"
+  title="Programista do wynajęcia"
+  description="Programista Ruby on Rails od 2013. Tworzę aplikacje webowe, produkty SaaS i strony osobiste dla zespołów i przedsiębiorców."
+>
 
-  <hr />
+  <!-- ── Hero ─────────────────────────────────── -->
+  <div class="hero-wrap">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <section class="prose landing-section hero-content">
+      <span class="section-label">Przyjmuję nowe zlecenia</span>
+      <h1>Buduję rzeczy w sieci od 2013.</h1>
+      <p>
+        Programista Ruby on Rails. Tworzę aplikacje webowe, produkty SaaS i
+        strony osobiste — dla zespołów deweloperskich i przedsiębiorców.
+      </p>
+      <a class="cta-primary" href="mailto:marcin@syngajewski.com">Napisz do mnie →</a>
+    </section>
+  </div>
 
-  <section>
-    {posts.length === 0 && <p>Brak wpisów.</p>}
-    <ul style="padding-left: 1.2rem;">
-      {
-        posts.map((post) => (
-          <li style="margin-bottom: 0.4rem;">
-            <a href={`/blog/${post.id}`}>{post.data.title}</a>{" "}
-            <span style="color: #888; font-size: 0.85rem; font-family: 'Courier New', monospace;">
-              {post.data.date.toISOString().slice(0, 10)}
-            </span>
-          </li>
-        ))
-      }
-    </ul>
+  <hr class="divider" />
+
+  <!-- ── Services ──────────────────────────────── -->
+  <section class="wide landing-section">
+    <h2>Jak mogę pomóc</h2>
+    <span class="section-label">Usługi</span>
+    <div class="services-grid">
+      <ServiceCard
+        title="Rozwój aplikacji Rails"
+        body="Nowe projekty i długoterminowa praca produktowa. Przejmuję cały backend — od schematu bazy danych po deployment."
+      />
+      <ServiceCard
+        title="Ratowanie starego kodu"
+        body="Aktualizacja starych aplikacji Rails, porządkowanie długu technicznego, dodawanie testów tam, gdzie ich brakuje."
+      />
+      <ServiceCard
+        title="JavaScript / frontend"
+        body="Praca w JavaScript obok backendu Rails — Stimulus, Turbo lub vanilla JS. Bez zbędnych frameworków."
+      />
+      <ServiceCard
+        title="Strony osobiste"
+        body="Czysta, szybka strona dla Twojej praktyki, studia lub małej firmy. Opisujesz czego potrzebujesz, resztą zajmuję się ja."
+      />
+      <ServiceCard
+        title="Produkty SaaS"
+        body="Kompleksowe budowanie produktów dla przedsiębiorców z pomysłem, ale bez zespołu deweloperskiego. Od koncepcji do działającego produktu."
+      />
+      <ServiceCard
+        title="Aplikacje mobilne"
+        body="Wieloplatformowe aplikacje mobilne na iOS i Android. Budowane tak, by czysto integrować się z backendem."
+      />
+    </div>
   </section>
-</BaseLayout>
+
+  <hr class="divider" />
+
+  <!-- ── About ──────────────────────────────────── -->
+  <section class="prose landing-section">
+    <h2>Kilka słów o mnie</h2>
+    <span class="section-label">O mnie</span>
+    <p>
+      Piszę w Rails zawodowo od 2013 roku. Większość moich projektów to startupy
+      i małe zespoły produktowe — takie, gdzie jestem jedynym lub jednym z dwóch
+      programistów backendowych. Pracuję też z przedsiębiorcami, którzy mają
+      pomysł, ale nie mają zespołu — przejmuję wszystko od koncepcji po
+      wdrożenie.
+    </p>
+    <p>
+      Mieszkam w Bułgarii, jestem Polakiem. Mówię płynnie po angielsku i
+      bułgarsku. Wygodnie pracuję asynchronicznie w różnych strefach czasowych.
+    </p>
+    <p class="social-links">
+      <a href="https://github.com/Archetylator">GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="https://linkedin.com/in/marcin-syngajewski">LinkedIn</a>
+      &nbsp;·&nbsp;
+      <a href="https://stackoverflow.com/users/3459543/archetylator">Stack Overflow</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.upwork.com/freelancers/~018a75323f90fef96f">Upwork</a>
+    </p>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ── Projects ──────────────────────────────── -->
+  <section class="prose landing-section">
+    <h2>Projekty</h2>
+    <span class="section-label">Co buduję</span>
+    <ProjectCard
+      name="WhenSpace"
+      url="https://whenspace.app/"
+      label="Projekt własny"
+      body="Aplikacja produktywnościowa łącząca zadania, kalendarz i śledzenie nawyków w jednym interfejsie. Działa offline, bez konta i bez synchronizacji z chmurą."
+    />
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ── Writing ────────────────────────────────── -->
+  <section class="prose landing-section">
+    <h2>Notatki o backendzie i infrastrukturze</h2>
+    <span class="section-label">Artykuły</span>
+    <p>
+      Piszę o rzeczach, które napotykam — Rails, DevOps, serwery VPS, deployment.
+    </p>
+    <WritingList posts={posts} limit={3} />
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ── Contact CTA ───────────────────────────── -->
+  <section class="wide landing-section">
+    <div class="contact-section">
+      <span class="section-label">Kontakt</span>
+      <h2>Współpracujmy</h2>
+      <p>Przyjmuję nowe projekty. Nie jesteś pewien czy pasuję? Napisz mimo to — odpowiem szczerze.</p>
+      <a class="cta-primary" href="mailto:marcin@syngajewski.com">marcin@syngajewski.com →</a>
+    </div>
+  </section>
+
+</LandingLayout>

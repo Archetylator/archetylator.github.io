@@ -1,0 +1,131 @@
+---
+import LandingLayout from "../../layouts/LandingLayout.astro";
+import ServiceCard from "../../components/ServiceCard.astro";
+import WritingList from "../../components/WritingList.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog"))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<LandingLayout
+  lang="bg"
+  title="Уеб разработчик под наем"
+  description="Ruby on Rails разработчик от 2013. Изграждам уебсайтове, SaaS продукти и мобилни приложения за бизнеси и нетехнически клиенти."
+>
+
+  <!-- ── Hero ─────────────────────────────────── -->
+  <div class="hero-wrap">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <section class="prose landing-section hero-content">
+      <span class="section-label">Приемам нови проекти</span>
+      <h1>Изграждам уеб неща от 2013.</h1>
+      <p>
+        Ruby on Rails разработчик. Изграждам уеб приложения, SaaS продукти и
+        лични сайтове — за dev екипи и предприемачи.
+      </p>
+      <a class="cta-primary" href="mailto:marcin@syngajewski.com">Свържете се →</a>
+    </section>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ── Services ──────────────────────────────── -->
+  <section class="wide landing-section">
+    <h2>С какво мога да помогна</h2>
+    <span class="section-label">Услуги</span>
+    <div class="services-grid">
+      <ServiceCard
+        title="Rails разработка"
+        body="Изграждане на нови проекти и поддръжка на съществуващи. Поемам целия backend — от базата данни до сървъра."
+      />
+      <ServiceCard
+        title="Спасяване на стар код"
+        body="Ъпгрейд на стари Rails приложения, разчистване на технически дълг, добавяне на тестове там, където ги няма."
+      />
+      <ServiceCard
+        title="JavaScript / frontend"
+        body="JavaScript работа заедно с Rails backend — Stimulus, Turbo или vanilla JS. Без излишни фреймъркове."
+      />
+      <ServiceCard
+        title="Лични сайтове"
+        body="Чист, бърз сайт за вашата практика, студио или малък бизнес. Вие описвате, аз изграждам."
+      />
+      <ServiceCard
+        title="SaaS продукти"
+        body="Пълно изграждане на продукти за предприемачи с идея, но без dev екип. От концепция до работещ продукт."
+      />
+      <ServiceCard
+        title="Мобилни приложения"
+        body="Кросплатформени мобилни приложения за iOS и Android. Интегрират се чисто с вашия backend."
+      />
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ── About ──────────────────────────────────── -->
+  <section class="prose landing-section">
+    <span class="section-label">За мен</span>
+    <h2>Малко повече</h2>
+    <p>
+      Пиша Rails професионално от 2013 година. Работя основно за стартъпи и
+      малки екипи — проекти, при които аз съм единственият или един от двама
+      backend разработчици. Работя и с предприемачи, които имат идея, но нямат
+      dev екип — поемам всичко от концепцията до пускането на продукта.
+    </p>
+    <p>
+      Базиран съм в България, говоря свободно английски и български, удобен съм с
+      асинхронна комуникация.
+    </p>
+    <p class="social-links">
+      <a href="https://github.com/Archetylator">GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="https://linkedin.com/in/marcin-syngajewski">LinkedIn</a>
+      &nbsp;·&nbsp;
+      <a href="https://stackoverflow.com/users/3459543/archetylator">Stack Overflow</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.upwork.com/freelancers/~018a75323f90fef96f">Upwork</a>
+    </p>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ── Projects ──────────────────────────────── -->
+  <section class="prose landing-section">
+    <h2>Проекти</h2>
+    <span class="section-label">Какво изграждам</span>
+    <ProjectCard
+      name="WhenSpace"
+      url="https://whenspace.app/"
+      label="Личен проект"
+      body="Приложение за продуктивност, което обединява задачи, календар и проследяване на навици в един интерфейс. Работи офлайн, без акаунт и без синхронизация с облак."
+    />
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ── Writing ────────────────────────────────── -->
+  <section class="prose landing-section">
+    <span class="section-label">Статии</span>
+    <h2>Бележки за backend и инфраструктура</h2>
+    <p>Пиша за Rails, DevOps, сървъри и deployment.</p>
+    <WritingList posts={posts} limit={3} />
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ── Contact CTA ───────────────────────────── -->
+  <section class="wide landing-section">
+    <div class="contact-section">
+      <span class="section-label">Контакт</span>
+      <h2>Нека работим заедно</h2>
+      <p>Приемам нови проекти. Не сте сигурни дали съм правилният избор? Пишете ми — ще ви отговоря честно.</p>
+      <a class="cta-primary" href="mailto:marcin@syngajewski.com">marcin@syngajewski.com →</a>
+    </div>
+  </section>
+
+</LandingLayout>

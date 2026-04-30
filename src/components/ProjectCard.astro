@@ -1,0 +1,56 @@
+---
+interface Props {
+  name: string;
+  url: string;
+  body: string;
+  label?: string;
+}
+const { name, url, body, label = "Side project" } = Astro.props;
+---
+
+<div class="project-card">
+  <span class="project-label">{label}</span>
+  <a class="project-name" href={url} target="_blank" rel="noopener">{name} ↗</a>
+  <p>{body}</p>
+</div>
+
+<style>
+  .project-card {
+    background: #f4ede3;
+    border-radius: 4px;
+    padding: 1.4rem 1.25rem;
+    border-left: 3px solid #b8935a;
+    margin-top: 1.25rem;
+  }
+
+  .project-label {
+    display: block;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #9c6b38;
+    margin-bottom: 0.35rem;
+  }
+
+  .project-name {
+    display: inline-block;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1c1a17;
+    text-decoration: none;
+    margin-bottom: 0.6rem;
+  }
+
+  .project-name:hover {
+    color: #9c6b38;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.92rem;
+    color: #7a7570;
+    line-height: 1.65;
+  }
+</style>
