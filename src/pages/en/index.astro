@@ -1,11 +1,10 @@
 ---
 import LandingLayout from "../../layouts/LandingLayout.astro";
-import ServiceCard from "../../components/ServiceCard.astro";
-import WritingList from "../../components/WritingList.astro";
-import ProjectCard from "../../components/ProjectCard.astro";
+import LandingPage from "../../components/LandingPage.astro";
 import { getCollection } from "astro:content";
 
 const posts = (await getCollection("blog"))
+  .filter((p) => p.data.lang === "en")
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
@@ -14,121 +13,39 @@ const posts = (await getCollection("blog"))
   title="Rails Developer for Hire"
   description="Ruby on Rails freelancer since 2013. I build web applications, SaaS products, and personal sites for product teams and non-technical founders."
 >
-
-  <!-- ── Hero ─────────────────────────────────── -->
-  <div class="hero-wrap">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
-    <section class="prose landing-section hero-content">
-      <span class="section-label">Available for hire</span>
-      <h1>Building web things since 2013.</h1>
-      <p>
-        Ruby on Rails developer. I build web applications, SaaS products, and
-        personal sites — for dev teams and entrepreneurs alike.
-      </p>
-      <a class="cta-primary" href="mailto:marcin@syngajewski.com">Get in touch →</a>
-    </section>
-  </div>
-
-  <hr class="divider" />
-
-  <!-- ── Services ──────────────────────────────── -->
-  <section class="wide landing-section">
-    <h2>What I can help with</h2>
-    <span class="section-label">Services</span>
-    <div class="services-grid">
-      <ServiceCard
-        title="Rails application development"
-        body="Greenfield builds and long-running product work. Comfortable owning a backend from schema to deployment."
-      />
-      <ServiceCard
-        title="Legacy codebase rescue"
-        body="Upgrading old Rails apps, untangling tech debt, adding test coverage to codebases that have none."
-      />
-      <ServiceCard
-        title="JavaScript / frontend"
-        body="JavaScript work alongside Rails backends — Stimulus, Turbo, or vanilla JS. No framework bloat if you don't need it."
-      />
-      <ServiceCard
-        title="Personal sites"
-        body="A clean, fast site for your practice, studio, or small business. You describe what you need, I take care of the rest."
-      />
-      <ServiceCard
-        title="SaaS products"
-        body="Full product builds for entrepreneurs with an idea but no dev team. From concept to launched product, with a maintainable codebase."
-      />
-      <ServiceCard
-        title="Mobile apps"
-        body="Cross-platform mobile apps for iOS and Android. Built to integrate cleanly with your backend."
-      />
-    </div>
-  </section>
-
-  <hr class="divider" />
-
-  <!-- ── About ──────────────────────────────────── -->
-  <section class="prose landing-section">
-    <span class="section-label">About</span>
-    <h2>A bit about me</h2>
-    <p>
-      I've been writing Rails professionally since 2013. Most of my work is for
-      startups and small product teams — the kind of projects where I'm the only
-      backend developer or one of two. I also work with business owners who have
-      an idea but no dev team, handling everything from concept to deployment.
-    </p>
-    <p>
-      Based in Bulgaria, fluent in English and Bulgarian, comfortable with async
-      communication across time zones.
-    </p>
-    <p class="social-links">
-      <a href="https://github.com/Archetylator">GitHub</a>
-      &nbsp;·&nbsp;
-      <a href="https://linkedin.com/in/marcin-syngajewski">LinkedIn</a>
-      &nbsp;·&nbsp;
-      <a href="https://stackoverflow.com/users/3459543/archetylator">Stack Overflow</a>
-      &nbsp;·&nbsp;
-      <a href="https://www.upwork.com/freelancers/~018a75323f90fef96f">Upwork</a>
-    </p>
-  </section>
-
-  <hr class="divider" />
-
-  <!-- ── Projects ──────────────────────────────── -->
-  <section class="prose landing-section">
-    <h2>Projects</h2>
-    <span class="section-label">What I build</span>
-    <ProjectCard
-      name="WhenSpace"
-      url="https://whenspace.app/"
-      label="Side project"
-      body="A productivity app that brings tasks, calendar, and habit tracking into one clean interface. Offline-first, private by design — no accounts, no cloud sync required."
-    />
-  </section>
-
-  <hr class="divider" />
-
-  <!-- ── Writing ────────────────────────────────── -->
-  <section class="prose landing-section">
-    <span class="section-label">Writing</span>
-    <h2>Notes on backend &amp; infrastructure</h2>
-    <p>
-      I occasionally write about the things I run into — Rails, DevOps, VPS
-      costs, deployment workflows.
-    </p>
-    <WritingList posts={posts} limit={3} />
-  </section>
-
-  <hr class="divider" />
-
-  <!-- ── Contact CTA ───────────────────────────── -->
-  <section class="wide landing-section">
-    <div class="contact-section">
-      <span class="section-label">Contact</span>
-      <h2>Let's work together</h2>
-      <p>Available for new projects. Not sure if I'm the right fit? Send me a message anyway — I'll tell you honestly.</p>
-      <a class="cta-primary" href="mailto:marcin@syngajewski.com">marcin@syngajewski.com →</a>
-    </div>
-  </section>
-
+  <LandingPage
+    heroEyebrow="Available for hire"
+    heroHeading="Building web things since 2013."
+    heroBody="Ruby on Rails developer. I build web applications, SaaS products, and personal sites — for dev teams and entrepreneurs alike."
+    heroCta="Get in touch →"
+    servicesHeading="What I can help with"
+    servicesEyebrow="Services"
+    services={[
+      { title: "Rails application development", body: "Greenfield builds and long-running product work. Comfortable owning a backend from schema to deployment." },
+      { title: "Legacy codebase rescue", body: "Upgrading old Rails apps, untangling tech debt, adding test coverage to codebases that have none." },
+      { title: "JavaScript / frontend", body: "JavaScript work alongside Rails backends — Stimulus, Turbo, or vanilla JS. No framework bloat if you don't need it." },
+      { title: "Personal sites", body: "A clean, fast site for your practice, studio, or small business. You describe what you need, I take care of the rest." },
+      { title: "SaaS products", body: "Full product builds for entrepreneurs with an idea but no dev team. From concept to launched product, with a maintainable codebase." },
+      { title: "Mobile apps", body: "Cross-platform mobile apps for iOS and Android. Built to integrate cleanly with your backend." },
+    ]}
+    aboutEyebrow="About"
+    aboutHeading="A bit about me"
+    aboutParagraphs={[
+      "I've been writing Rails professionally since 2013. Most of my work is for startups and small product teams — the kind of projects where I'm the only backend developer or one of two. I also work with business owners who have an idea but no dev team, handling everything from concept to deployment.",
+      "Based in Bulgaria, fluent in English and Bulgarian, comfortable with async communication across time zones.",
+    ]}
+    projectsHeading="Projects"
+    projectsEyebrow="What I build"
+    projects={[
+      { name: "WhenSpace", url: "https://whenspace.app/", label: "Side project", body: "A productivity app that brings tasks, calendar, and habit tracking into one clean interface. Offline-first, private by design — no accounts, no cloud sync required." },
+    ]}
+    writingEyebrow="Writing"
+    writingHeading="Notes on backend & infrastructure"
+    writingBody="I occasionally write about the things I run into — Rails, DevOps, VPS costs, deployment workflows."
+    posts={posts}
+    contactEyebrow="Contact"
+    contactHeading="Let's work together"
+    contactBody="Available for new projects. Not sure if I'm the right fit? Send me a message anyway — I'll tell you honestly."
+    contactEmail="marcin@syngajewski.com"
+  />
 </LandingLayout>

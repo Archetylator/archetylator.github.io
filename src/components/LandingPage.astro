@@ -1,0 +1,136 @@
+---
+import ServiceCard from "./ServiceCard.astro";
+import WritingList from "./WritingList.astro";
+import ProjectCard from "./ProjectCard.astro";
+import type { CollectionEntry } from "astro:content";
+
+interface ServiceEntry {
+  title: string;
+  body: string;
+}
+
+interface ProjectEntry {
+  name: string;
+  url: string;
+  label: string;
+  body: string;
+}
+
+interface Props {
+  heroEyebrow: string;
+  heroHeading: string;
+  heroBody: string;
+  heroCta: string;
+
+  servicesHeading: string;
+  servicesEyebrow: string;
+  services: ServiceEntry[];
+
+  aboutEyebrow: string;
+  aboutHeading: string;
+  aboutParagraphs: string[];
+
+  projectsHeading: string;
+  projectsEyebrow: string;
+  projects: ProjectEntry[];
+
+  writingEyebrow: string;
+  writingHeading: string;
+  writingBody: string;
+  posts: CollectionEntry<"blog">[];
+
+  contactEyebrow: string;
+  contactHeading: string;
+  contactBody: string;
+  contactEmail: string;
+}
+
+const {
+  heroEyebrow, heroHeading, heroBody, heroCta,
+  servicesHeading, servicesEyebrow, services,
+  aboutEyebrow, aboutHeading, aboutParagraphs,
+  projectsHeading, projectsEyebrow, projects,
+  writingEyebrow, writingHeading, writingBody, posts,
+  contactEyebrow, contactHeading, contactBody, contactEmail,
+} = Astro.props;
+
+const social = [
+  { label: "GitHub", url: "https://github.com/Archetylator" },
+  { label: "LinkedIn", url: "https://linkedin.com/in/marcin-syngajewski" },
+]
+---
+
+<!-- ── Hero ─────────────────────────────────── -->
+<div class="hero-wrap">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <section class="prose landing-section hero-content">
+    <span class="section-label">{heroEyebrow}</span>
+    <h1>{heroHeading}</h1>
+    <p>{heroBody}</p>
+    <a class="cta-primary" href={`mailto:${contactEmail}`}>{heroCta}</a>
+  </section>
+</div>
+
+<hr class="divider" />
+
+<!-- ── Services ──────────────────────────────── -->
+<section class="wide landing-section">
+  <h2>{servicesHeading}</h2>
+  <span class="section-label">{servicesEyebrow}</span>
+  <div class="services-grid">
+    {services.map(s => <ServiceCard title={s.title} body={s.body} />)}
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ── About ──────────────────────────────────── -->
+<section class="prose landing-section">
+  <span class="section-label">{aboutEyebrow}</span>
+  <h2>{aboutHeading}</h2>
+  {aboutParagraphs.map(p => <p>{p}</p>)}
+  <p class="social-links">
+    {social.map((link, i) => (
+      <>
+        {i > 0 && <>&nbsp;·&nbsp;</>}
+        <a href={link.url}>{link.label}</a>
+      </>
+    ))}
+  </p>
+</section>
+
+<hr class="divider" />
+
+<!-- ── Projects ──────────────────────────────── -->
+<section class="prose landing-section">
+  <h2>{projectsHeading}</h2>
+  <span class="section-label">{projectsEyebrow}</span>
+  {projects.map(p => (
+    <ProjectCard name={p.name} url={p.url} label={p.label} body={p.body} />
+  ))}
+</section>
+
+<hr class="divider" />
+
+{posts.length > 0 && (
+  <section class="prose landing-section">
+    <span class="section-label">{writingEyebrow}</span>
+    <h2>{writingHeading}</h2>
+    <p>{writingBody}</p>
+    <WritingList posts={posts} />
+  </section>
+
+  <hr class="divider" />
+)}
+
+<!-- ── Contact CTA ───────────────────────────── -->
+<section class="wide landing-section">
+  <div class="contact-section">
+    <span class="section-label">{contactEyebrow}</span>
+    <h2>{contactHeading}</h2>
+    <p>{contactBody}</p>
+    <a class="cta-primary" href={`mailto:${contactEmail}`}>{contactEmail} →</a>
+  </div>
+</section>

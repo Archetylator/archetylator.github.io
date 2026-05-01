@@ -8,10 +8,9 @@ interface Post {
 }
 interface Props {
   posts: Post[];
-  limit?: number;
 }
-const { posts, limit = 3 } = Astro.props;
-const shown = posts.slice(0, limit);
+const { posts } = Astro.props;
+const shown = posts;
 ---
 
 <ul style="padding-left: 1.2rem;">
