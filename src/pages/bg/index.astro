@@ -10,46 +10,46 @@ const posts = (await getCollection("blog"))
 
 <LandingLayout
   lang="bg"
-  title="Уеб разработчик под наем"
-  description="Ruby on Rails разработчик от 2013. Изграждам уебсайтове, SaaS продукти и мобилни приложения за бизнеси и нетехнически клиенти."
+  title="Програмист"
+  description="Изграждам уебсайтове, уеб приложения и SaaS продукти."
 >
   <LandingPage
-    heroEyebrow="Приемам нови проекти"
-    heroHeading="Изграждам уеб неща от 2013."
-    heroBody="Ruby on Rails разработчик. Изграждам уеб приложения, SaaS продукти и лични сайтове — за dev екипи и предприемачи."
-    heroCta="Свържете се →"
-    servicesHeading="С какво мога да помогна"
+    heroEyebrow="Имаш идея? С удоволствие ще помогна!"
+    heroHeading="Превръщам идеи в работещи решения."
+    heroBody="Изграждам уебсайтове, уеб приложения и SaaS продукти."
+    heroCta="Пиши ми →"
+    servicesHeading="Как мога да помогна"
     servicesEyebrow="Услуги"
     services={[
-      { title: "Лични сайтове", body: "Чист, бърз сайт за вашата практика, студио или малък бизнес. Вие описвате, аз изграждам." },
-      { title: "SaaS продукти", body: "Пълно изграждане на продукти за предприемачи с идея, но без dev екип. От концепция до работещ продукт." },
-      { title: "Мобилни приложения", body: "Кросплатформени мобилни приложения за iOS и Android. Интегрират се чисто с вашия backend." },
+      { title: "Уебсайтове", body: "Модерен сайт за твоята дейност — практика, студио или проект. Кажи ми какво ти трябва — аз се грижа за останалото." },
+      { title: "Уеб приложения", body: "Помагам на предприемачи без технически екип да превърнат идеите си в работещи продукти." },
+      { title: "Мобилни приложения", body: "Кросплатформени приложения за iOS и Android. Бързодействие, единен UI/UX и лесно развитие на продукта." },
     ]}
     techServicesHeading="Технологичен стек"
-    techServicesEyebrow="За рекрутъри и dev екипи"
+    techServicesEyebrow="За рекрутъри и екипи"
     techServices={[
-      { title: "Ruby & Ruby on Rails", body: "Backend в Rails от 2013 — нови проекти, legacy, API. Тестове (RSpec, Minitest), deployment, оптимизация на заявки." },
-      { title: "Frontend — HTML, CSS, JS", body: "SvelteKit и React от страна на клиента; Stimulus и Turbo заедно с Rails. Семантичен HTML, модерен CSS, достъпност." },
-      { title: "AI & agentic engineering", body: "Проектиране и внедряване на AI решения — агенти, RAG пайплайни, интеграции с LLM API (OpenAI, Anthropic)." },
+      { title: "Ruby & Ruby on Rails", body: "Пиша на Ruby on Rails от 2013 година. Опит с Hotwire, Turbo, Stimulus, ActiveAdmin, Devise, Pundit, Rolify, Slim, Twilio, Stripe, Rubocop, RSpec, Minitest." },
+      { title: "HTML, CSS, JS", body: "Използвам SvelteKit, React и Node.js. Прилагам Tailwind CSS и Drizzle ORM, поддържам качество на кода с ESLint и Prettier, а тестовете пиша с Vitest и Playwright." },
+      { title: "AI & agentic engineering", body: "Внедрявам AI решения — чатботове, агенти (включително гласови и телефонни) и RAG системи. Интегрирам LLM модели (OpenAI, Anthropic) в приложения чрез LangChain." },
     ]}
     aboutEyebrow="За мен"
-    aboutHeading="Малко повече"
+    aboutHeading="Няколко думи за мен"
     aboutParagraphs={[
-      "Пиша Rails професионално от 2013 година. Работя основно за стартъпи и малки екипи — проекти, при които аз съм единственият или един от двама backend разработчици. Работя и с предприемачи, които имат идея, но нямат dev екип — поемам всичко от концепцията до пускането на продукта.",
-      "Базиран съм в България, говоря свободно английски и български, удобен съм с асинхронна комуникация.",
+      "Произхождам от Полша, а от много години живея в България. Обичам да ходя пеша — най-добре към планините.",
+      "Книги, които са ми останали: „Човекът в търсене на смисъл”, „Седемте навика на високоефективните хора”, „Смелостта да бъдеш нехаресван” — и Библията.",
     ]}
     projectsHeading="Проекти"
     projectsEyebrow="Какво изграждам"
     projects={[
-      { name: "WhenSpace", url: "https://whenspace.app/", label: "Личен проект", body: "Приложение за продуктивност, което обединява задачи, календар и проследяване на навици в един интерфейс. Работи офлайн, без акаунт и без синхронизация с облак." },
+      { name: "WhenSpace", url: "https://whenspace.app/", label: "Личен проект", body: "Мобилно приложение, което организира деня ти — обединява задачи, календар и навици на едно място. Без излишен хаос, с акцент върху простота и яснота." },
     ]}
-    writingEyebrow="Статии"
-    writingHeading="Бележки за backend и инфраструктура"
-    writingBody="Пиша за Rails, DevOps, сървъри и deployment."
+    writingEyebrow="Блог"
+    writingHeading="Публикации"
+    writingBody="Малко за едното, малко за другото."
     posts={posts}
     contactEyebrow="Контакт"
-    contactHeading="Нека работим заедно"
-    contactBody="Приемам нови проекти. Не сте сигурни дали съм правилният избор? Пишете ми — ще ви отговоря честно."
+    contactHeading="Нека си сътрудничим"
+    contactBody="Приемам нови проекти. Не си сигурен дали съм подходящ? Пиши ми въпреки това — ще отговоря честно."
     contactEmail="marcin@syngajewski.com"
   />
 </LandingLayout>

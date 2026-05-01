@@ -10,46 +10,46 @@ const posts = (await getCollection("blog"))
 
 <LandingLayout
   lang="en"
-  title="Rails Developer for Hire"
-  description="Ruby on Rails freelancer since 2013. I build web applications, SaaS products, and personal sites for product teams and non-technical founders."
+  title="Developer"
+  description="I build websites, web apps, and SaaS products."
 >
   <LandingPage
-    heroEyebrow="Available for hire"
-    heroHeading="Building web things since 2013."
-    heroBody="Ruby on Rails developer. I build web applications, SaaS products, and personal sites — for dev teams and entrepreneurs alike."
-    heroCta="Get in touch →"
-    servicesHeading="What I can help with"
+    heroEyebrow="Got an idea? I'd love to help!"
+    heroHeading="I turn ideas into working solutions."
+    heroBody="I build websites, web applications, and SaaS products."
+    heroCta="Write to me →"
+    servicesHeading="How I can help"
     servicesEyebrow="Services"
     services={[
-      { title: "Personal sites", body: "A clean, fast site for your practice, studio, or small business. You describe what you need, I take care of the rest." },
-      { title: "SaaS products", body: "Full product builds for entrepreneurs with an idea but no dev team. From concept to launched product, with a maintainable codebase." },
-      { title: "Mobile apps", body: "Cross-platform mobile apps for iOS and Android. Built to integrate cleanly with your backend." },
+      { title: "Websites", body: "A modern site for your practice, studio, or project. You tell me what you need — I handle the rest." },
+      { title: "Web applications", body: "I help entrepreneurs without a technical team turn ideas into working products." },
+      { title: "Mobile apps", body: "Cross-platform apps for iOS and Android. Performance, consistent UI/UX, and easy product growth." },
     ]}
     techServicesHeading="Tech stack"
-    techServicesEyebrow="For recruiters & dev teams"
+    techServicesEyebrow="For recruiters and teams"
     techServices={[
-      { title: "Ruby & Ruby on Rails", body: "Backend Rails work since 2013 — greenfield, legacy, API-only. Testing (RSpec, Minitest), deployment, query optimisation." },
-      { title: "Frontend — HTML, CSS, JS", body: "SvelteKit and React on the client side; Stimulus and Turbo alongside Rails. Semantic HTML, modern CSS, accessibility." },
-      { title: "AI & agentic engineering", body: "Designing and shipping AI-driven solutions — agents, RAG pipelines, LLM API integrations (OpenAI, Anthropic)." },
+      { title: "Ruby & Ruby on Rails", body: "Writing Rails since 2013. Experience with Hotwire, Turbo, Stimulus, ActiveAdmin, Devise, Pundit, Rolify, Slim, Twilio, Stripe, Rubocop, RSpec, Minitest." },
+      { title: "HTML, CSS, JS", body: "I use SvelteKit, React, and Node.js. I apply Tailwind CSS and Drizzle ORM, keep code quality with ESLint and Prettier, and write tests with Vitest and Playwright." },
+      { title: "AI & agentic engineering", body: "I build AI solutions — chatbots, agents (including voice and telephony), and RAG systems. I integrate LLMs (OpenAI, Anthropic) into applications via LangChain." },
     ]}
     aboutEyebrow="About"
     aboutHeading="A bit about me"
     aboutParagraphs={[
-      "I've been writing Rails professionally since 2013. Most of my work is for startups and small product teams — the kind of projects where I'm the only backend developer or one of two. I also work with business owners who have an idea but no dev team, handling everything from concept to deployment.",
-      "Based in Bulgaria, fluent in English and Bulgarian, comfortable with async communication across time zones.",
+      "I'm from Poland, and I've been living in Bulgaria for many years. I'm an outdoor person — I love hiking, especially in the mountains.",
+      "Books that have stayed with me:  \"Man's Search for Meaning\", \"The 7 Habits of Highly Effective People\", \"The Courage to Be Disliked\" — and the Bible.",
     ]}
     projectsHeading="Projects"
-    projectsEyebrow="What I build"
+    projectsEyebrow="What I'm building"
     projects={[
-      { name: "WhenSpace", url: "https://whenspace.app/", label: "Side project", body: "A productivity app that brings tasks, calendar, and habit tracking into one clean interface. Offline-first, private by design — no accounts, no cloud sync required." },
+      { name: "WhenSpace", url: "https://whenspace.app/", label: "Personal project", body: "A mobile app that brings order to your day — combining tasks, calendar, and habits in one place. No unnecessary clutter, with a focus on simplicity and clarity." },
     ]}
-    writingEyebrow="Writing"
-    writingHeading="Notes on backend & infrastructure"
-    writingBody="I occasionally write about the things I run into — Rails, DevOps, VPS costs, deployment workflows."
+    writingEyebrow="Blog"
+    writingHeading="Posts"
+    writingBody="A bit about this, a bit about that."
     posts={posts}
     contactEyebrow="Contact"
-    contactHeading="Let's work together"
-    contactBody="Available for new projects. Not sure if I'm the right fit? Send me a message anyway — I'll tell you honestly."
+    contactHeading="Let's collaborate"
+    contactBody="I'm open to new projects. Not sure if I'm the right fit? Write anyway — I'll be honest."
     contactEmail="marcin@syngajewski.com"
   />
 </LandingLayout>
