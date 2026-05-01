@@ -21,12 +21,16 @@ const posts = (await getCollection("blog"))
     servicesHeading="What I can help with"
     servicesEyebrow="Services"
     services={[
-      { title: "Rails application development", body: "Greenfield builds and long-running product work. Comfortable owning a backend from schema to deployment." },
-      { title: "Legacy codebase rescue", body: "Upgrading old Rails apps, untangling tech debt, adding test coverage to codebases that have none." },
-      { title: "JavaScript / frontend", body: "JavaScript work alongside Rails backends — Stimulus, Turbo, or vanilla JS. No framework bloat if you don't need it." },
       { title: "Personal sites", body: "A clean, fast site for your practice, studio, or small business. You describe what you need, I take care of the rest." },
       { title: "SaaS products", body: "Full product builds for entrepreneurs with an idea but no dev team. From concept to launched product, with a maintainable codebase." },
       { title: "Mobile apps", body: "Cross-platform mobile apps for iOS and Android. Built to integrate cleanly with your backend." },
+    ]}
+    techServicesHeading="Tech stack"
+    techServicesEyebrow="For recruiters & dev teams"
+    techServices={[
+      { title: "Ruby & Ruby on Rails", body: "Backend Rails work since 2013 — greenfield, legacy, API-only. Testing (RSpec, Minitest), deployment, query optimisation." },
+      { title: "Frontend — HTML, CSS, JS", body: "SvelteKit and React on the client side; Stimulus and Turbo alongside Rails. Semantic HTML, modern CSS, accessibility." },
+      { title: "AI & agentic engineering", body: "Designing and shipping AI-driven solutions — agents, RAG pipelines, LLM API integrations (OpenAI, Anthropic)." },
     ]}
     aboutEyebrow="About"
     aboutHeading="A bit about me"

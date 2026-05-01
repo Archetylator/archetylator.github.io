@@ -1,8 +1,10 @@
 ---
+import { Image } from "astro:assets";
 import ServiceCard from "./ServiceCard.astro";
 import WritingList from "./WritingList.astro";
 import ProjectCard from "./ProjectCard.astro";
 import type { CollectionEntry } from "astro:content";
+import avatar from "../assets/avatar.jpg";
 
 interface ServiceEntry {
   title: string;
@@ -26,6 +28,10 @@ interface Props {
   servicesEyebrow: string;
   services: ServiceEntry[];
 
+  techServicesHeading: string;
+  techServicesEyebrow: string;
+  techServices: ServiceEntry[];
+
   aboutEyebrow: string;
   aboutHeading: string;
   aboutParagraphs: string[];
@@ -48,6 +54,7 @@ interface Props {
 const {
   heroEyebrow, heroHeading, heroBody, heroCta,
   servicesHeading, servicesEyebrow, services,
+  techServicesHeading, techServicesEyebrow, techServices,
   aboutEyebrow, aboutHeading, aboutParagraphs,
   projectsHeading, projectsEyebrow, projects,
   writingEyebrow, writingHeading, writingBody, posts,
@@ -86,19 +93,35 @@ const social = [
 
 <hr class="divider" />
 
+<!-- ── Technical services ─────────────────────── -->
+<section class="wide landing-section">
+  <h2>{techServicesHeading}</h2>
+  <span class="section-label">{techServicesEyebrow}</span>
+  <div class="services-grid">
+    {techServices.map(s => <ServiceCard title={s.title} body={s.body} />)}
+  </div>
+</section>
+
+<hr class="divider" />
+
 <!-- ── About ──────────────────────────────────── -->
-<section class="prose landing-section">
-  <span class="section-label">{aboutEyebrow}</span>
-  <h2>{aboutHeading}</h2>
-  {aboutParagraphs.map(p => <p>{p}</p>)}
-  <p class="social-links">
-    {social.map((link, i) => (
-      <>
-        {i > 0 && <>&nbsp;·&nbsp;</>}
-        <a href={link.url}>{link.label}</a>
-      </>
-    ))}
-  </p>
+<section class="prose landing-section about-section">
+  <div class="about-avatar">
+    <Image src={avatar} alt="Marcin Syngajewski" width={120} height={120} class="avatar-img" />
+  </div>
+  <div class="about-text">
+    <span class="section-label">{aboutEyebrow}</span>
+    <h2>{aboutHeading}</h2>
+    {aboutParagraphs.map(p => <p>{p}</p>)}
+    <p class="social-links">
+      {social.map((link, i) => (
+        <>
+          {i > 0 && <>&nbsp;·&nbsp;</>}
+          <a href={link.url}>{link.label}</a>
+        </>
+      ))}
+    </p>
+  </div>
 </section>
 
 <hr class="divider" />
@@ -134,3 +157,25 @@ const social = [
     <a class="cta-primary" href={`mailto:${contactEmail}`}>{contactEmail} →</a>
   </div>
 </section>
+
+<style>
+  .about-section {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+  .about-avatar {
+    flex-shrink: 0;
+  }
+  .avatar-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  @media (max-width: 480px) {
+    .about-section {
+      flex-direction: column;
+    }
+  }
+</style>

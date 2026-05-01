@@ -21,12 +21,16 @@ const posts = (await getCollection("blog"))
     servicesHeading="С какво мога да помогна"
     servicesEyebrow="Услуги"
     services={[
-      { title: "Rails разработка", body: "Изграждане на нови проекти и поддръжка на съществуващи. Поемам целия backend — от базата данни до сървъра." },
-      { title: "Спасяване на стар код", body: "Ъпгрейд на стари Rails приложения, разчистване на технически дълг, добавяне на тестове там, където ги няма." },
-      { title: "JavaScript / frontend", body: "JavaScript работа заедно с Rails backend — Stimulus, Turbo или vanilla JS. Без излишни фреймъркове." },
       { title: "Лични сайтове", body: "Чист, бърз сайт за вашата практика, студио или малък бизнес. Вие описвате, аз изграждам." },
       { title: "SaaS продукти", body: "Пълно изграждане на продукти за предприемачи с идея, но без dev екип. От концепция до работещ продукт." },
       { title: "Мобилни приложения", body: "Кросплатформени мобилни приложения за iOS и Android. Интегрират се чисто с вашия backend." },
+    ]}
+    techServicesHeading="Технологичен стек"
+    techServicesEyebrow="За рекрутъри и dev екипи"
+    techServices={[
+      { title: "Ruby & Ruby on Rails", body: "Backend в Rails от 2013 — нови проекти, legacy, API. Тестове (RSpec, Minitest), deployment, оптимизация на заявки." },
+      { title: "Frontend — HTML, CSS, JS", body: "SvelteKit и React от страна на клиента; Stimulus и Turbo заедно с Rails. Семантичен HTML, модерен CSS, достъпност." },
+      { title: "AI & agentic engineering", body: "Проектиране и внедряване на AI решения — агенти, RAG пайплайни, интеграции с LLM API (OpenAI, Anthropic)." },
     ]}
     aboutEyebrow="За мен"
     aboutHeading="Малко повече"

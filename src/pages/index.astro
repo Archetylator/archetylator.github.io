@@ -10,38 +10,42 @@ const posts = (await getCollection("blog"))
 
 <LandingLayout
   lang="pl"
-  title="Programista do wynajęcia"
-  description="Programista Ruby on Rails od 2013. Tworzę aplikacje webowe, produkty SaaS i strony osobiste dla zespołów i przedsiębiorców."
+  title="Programista"
+  description="Tworzę strony internetowe, aplikacje webowe i produkty SaaS."
 >
   <LandingPage
     heroEyebrow="Masz pomysł? Chętnie pomogę!"
-    heroHeading="Buduję rzeczy w sieci od 2013."
-    heroBody="Tworzę aplikacje webowe, produkty SaaS i strony osobiste — dla zespołów deweloperskich i przedsiębiorców."
+    heroHeading="Zamieniam pomysły w działające rozwiązania."
+    heroBody="Tworzę strony internetowe, aplikacje webowe i produkty SaaS."
     heroCta="Napisz do mnie →"
     servicesHeading="Jak mogę pomóc"
     servicesEyebrow="Usługi"
     services={[
-      { title: "Strony osobiste", body: "Nowoczesna, szybka strona dla Twojej praktyki, studia lub małej firmy. Opisujesz czego potrzebujesz, resztą zajmuję się ja." },
-      { title: "Produkty SaaS", body: "Kompleksowe budowanie produktów dla przedsiębiorców z pomysłem, ale bez zespołu deweloperskiego. Od koncepcji do działającego produktu." },
-      { title: "Aplikacje mobilne", body: "Wieloplatformowe aplikacje mobilne na iOS i Android. Tani rozwój, szybkie aktualizacje i spójność UI/UX." },
-      { title: "Rozwój aplikacji Rails", body: "Nowe projekty i długoterminowa praca produktowa. Przejmuję cały backend — od schematu bazy danych po deployment." },
-      { title: "Ratowanie starego kodu", body: "Aktualizacja starych aplikacji Rails, porządkowanie długu technicznego, dodawanie testów tam, gdzie ich brakuje." },
-      { title: "JavaScript", body: "Praca w JavaScript obok backendu Rails — Stimulus, Turbo lub vanilla JS. Bez zbędnych frameworków." },
+      { title: "Strony internetowe", body: "Nowoczesna strona dla Twojej działalności — praktyki, studia lub projektu. Ty mówisz, czego potrzebujesz — ja robię resztę." },
+      { title: "Aplikacje webowe", body: "Pomagam przedsiębiorcom bez zespołu technicznego zamieniać pomysły w działające produkty." },
+      { title: "Aplikacje mobilne", body: "Tworzę wieloplatformowe aplikacje na iOS i Android. Wydajność, spójny UI/UX i łatwy rozwój produktu." },
+    ]}
+    techServicesHeading="Stack technologiczny"
+    techServicesEyebrow="Dla rekruterów i zespołów"
+    techServices={[
+      { title: "Ruby & Ruby on Rails", body: "Programuję w Ruby on Rails od 2013 roku. Doświadczenie z Hotwire, Turbo, Stimulus, ActiveAdmin, Devise, Pundit, Rolify, Slim, Twilio, Stripe, Rubocop,, RSpec, Minitest." },
+      { title: "HTML, CSS, JS", body: "Wykorzystuję SvelteKit, React i Node.js. Stosuję Tailwind CSS i Drizzle ORM, dbam o jakość kodu przy użyciu ESLint i Prettier, a testy realizuję z użyciem Vitest i Playwright." },
+      { title: "AI & agentic engineering", body: "Wdrażam rozwiązania AI — chatboty, agentów (także głosowych i telefonicznych) oraz systemy RAG. Integruję LLM (OpenAI, Anthropic) z aplikacjami (LangChain)." },
     ]}
     aboutEyebrow="O mnie"
     aboutHeading="Kilka słów o mnie"
     aboutParagraphs={[
-      "Piszę w Ruby on Rails zawodowo od 2013 roku. Pracuję przede wszystkimi z tymi, którzy mają pomysł, ale nie mają zespołu — przejmuję wszystko od koncepcji po wdrożenie.",
-      "Urodziłem się w Polsce, ale żyję w Bułgarii. Mówię płynnie po polsku, angielsku i bułgarsku.",
+      "Pochodzę z Polski, a od wielu lat mieszkam w Bułgarii. Jestem wiatroczłapem — lubię chodzić, najlepiej w stronę gór.",
+      "Bliskie są mi książki, które zostają na dłużej: „Siekierezada”, „Cała jaskrawość”, „Człowiek w poszukiwaniu sensu”, „Siedem nawyków skutecznego działania”, i „Odwaga do bycia nielubianym” oraz ... „Biblia”.",
     ]}
     projectsHeading="Projekty"
     projectsEyebrow="Co buduję"
     projects={[
-      { name: "WhenSpace", url: "https://whenspace.app/", label: "Projekt własny", body: "Aplikacja łącząca zadania, kalendarz i śledzenie nawyków w jednym interfejsie. Offline-first. Zbudowana z użyciem Tauri, Rust i SvelteKit." },
+      { name: "WhenSpace", url: "https://whenspace.app/", label: "Projekt autorski", body: "Aplikacja mobilna, która porządkuje Twój dzień — łączy zadania, kalendarz i nawyki w jednym miejscu. Bez zbędnego chaosu, z naciskiem na prostotę i klarowność." },
     ]}
     writingEyebrow="Blog"
-    writingHeading="Notatki"
-    writingBody="Piszę o różnych rzeczach, o mydle i powidle."
+    writingHeading="Posty"
+    writingBody="Trochę o tym, trochę o tamtym."
     posts={posts}
     contactEyebrow="Kontakt"
     contactHeading="Współpracujmy"
