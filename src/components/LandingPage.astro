@@ -88,7 +88,9 @@ const navItems = [
     <span class="section-label">{heroEyebrow}</span>
     <h1>{heroHeading}</h1>
     <p>{heroBody}</p>
+    <!--email_off-->
     <a class="cta-primary" href={`mailto:${contactEmail}`}>{heroCta}</a>
+    <!--/email_off-->
   </section>
 </div>
 
@@ -166,10 +168,12 @@ const navItems = [
     <span class="section-label">{contactEyebrow}</span>
     <h2>{contactHeading}</h2>
     <p>{contactBody}</p>
+    <!--email_off-->
     <p class="contact-email">
       <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
     </p>
     <a class="cta-primary" href={`mailto:${contactEmail}`}>{contactEmail} →</a>
+    <!--/email_off-->
   </div>
 </section>
 
@@ -192,7 +196,7 @@ const navItems = [
     flex: 0 0 auto;
     padding: 0.25rem 0.55rem;
     color: var(--muted);
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
     font-size: 0.68rem;
     letter-spacing: 0.04em;
     text-decoration: none;
@@ -221,7 +225,7 @@ const navItems = [
   }
   .contact-email {
     margin-bottom: 0.75rem;
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
     font-size: 0.85rem;
     overflow-wrap: anywhere;
   }
