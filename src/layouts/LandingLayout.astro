@@ -3,7 +3,7 @@ import logo from "../assets/logo.svg";
 import avatar from "../assets/avatar.jpg";
 const { title, lang = "en", description = "Ruby on Rails freelancer since 2013. Available for product teams and non-technical founders." } = Astro.props;
 const SITE_NAME = "Marcin Syngajewski";
-const siteUrl = Astro.site ?? new URL("https://archetylator.github.io");
+const siteUrl ="https://syngajewski.com";
 const pageUrl = new URL(Astro.url.pathname, siteUrl).href;
 const ogImageUrl = new URL(avatar.src, siteUrl).href;
 const pageTitle = title ? `${title} · ${SITE_NAME}` : SITE_NAME;
