@@ -65,7 +65,19 @@ const social = [
   { label: "GitHub", url: "https://github.com/Archetylator" },
   { label: "LinkedIn", url: "https://linkedin.com/in/marcin-syngajewski" },
 ]
+
+const navItems = [
+  { href: "#services", label: servicesEyebrow },
+  { href: "#stack", label: techServicesHeading },
+  { href: "#projects", label: projectsHeading },
+  ...(posts.length > 0 ? [{ href: "#blog", label: writingEyebrow }] : []),
+  { href: "#contact", label: contactEyebrow },
+];
 ---
+
+<nav class="section-nav" aria-label="Section navigation">
+  {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+</nav>
 
 <!-- ── Hero ─────────────────────────────────── -->
 <div class="hero-wrap">
@@ -83,7 +95,7 @@ const social = [
 <hr class="divider" />
 
 <!-- ── Services ──────────────────────────────── -->
-<section class="wide landing-section">
+<section id="services" class="wide landing-section">
   <h2>{servicesHeading}</h2>
   <span class="section-label">{servicesEyebrow}</span>
   <div class="services-grid">
@@ -94,7 +106,7 @@ const social = [
 <hr class="divider" />
 
 <!-- ── Technical services ─────────────────────── -->
-<section class="wide landing-section">
+<section id="stack" class="wide landing-section">
   <h2>{techServicesHeading}</h2>
   <span class="section-label">{techServicesEyebrow}</span>
   <div class="services-grid">
@@ -127,7 +139,7 @@ const social = [
 <hr class="divider" />
 
 <!-- ── Projects ──────────────────────────────── -->
-<section class="prose landing-section">
+<section id="projects" class="prose landing-section">
   <h2>{projectsHeading}</h2>
   <span class="section-label">{projectsEyebrow}</span>
   {projects.map(p => (
@@ -138,7 +150,7 @@ const social = [
 <hr class="divider" />
 
 {posts.length > 0 && (
-  <section class="prose landing-section">
+  <section id="blog" class="prose landing-section">
     <span class="section-label">{writingEyebrow}</span>
     <h2>{writingHeading}</h2>
     <p>{writingBody}</p>
@@ -149,16 +161,50 @@ const social = [
 )}
 
 <!-- ── Contact CTA ───────────────────────────── -->
-<section class="wide landing-section">
+<section id="contact" class="wide landing-section">
   <div class="contact-section">
     <span class="section-label">{contactEyebrow}</span>
     <h2>{contactHeading}</h2>
     <p>{contactBody}</p>
+    <p class="contact-email">
+      <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+    </p>
     <a class="cta-primary" href={`mailto:${contactEmail}`}>{contactEmail} →</a>
   </div>
 </section>
 
 <style>
+  .section-nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    gap: 0.35rem;
+    overflow-x: auto;
+    padding: 0.55rem 1rem;
+    background: var(--bg);
+    background: color-mix(in srgb, var(--bg) 90%, transparent);
+    border-block: 1px solid var(--rule);
+    backdrop-filter: blur(12px);
+  }
+  .section-nav a {
+    flex: 0 0 auto;
+    padding: 0.25rem 0.55rem;
+    color: var(--muted);
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+  }
+  .section-nav a:hover,
+  .section-nav a:focus-visible {
+    color: var(--text);
+    text-decoration: underline;
+  }
+  .landing-section {
+    scroll-margin-top: 3.25rem;
+  }
   .about-section {
     display: flex;
     gap: 2rem;
@@ -173,9 +219,18 @@ const social = [
     border-radius: 50%;
     object-fit: cover;
   }
+  .contact-email {
+    margin-bottom: 0.75rem;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.85rem;
+    overflow-wrap: anywhere;
+  }
   @media (max-width: 480px) {
     .about-section {
       flex-direction: column;
+    }
+    .section-nav {
+      justify-content: flex-start;
     }
   }
 </style>

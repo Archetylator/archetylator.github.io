@@ -1,7 +1,11 @@
 ---
 import logo from "../assets/logo.svg";
+import avatar from "../assets/avatar.jpg";
 const { title, lang = "en", description = "Ruby on Rails freelancer since 2013. Available for product teams and non-technical founders." } = Astro.props;
 const SITE_NAME = "Marcin Syngajewski";
+const siteUrl = Astro.site ?? new URL("https://archetylator.github.io");
+const pageUrl = new URL(Astro.url.pathname, siteUrl).href;
+const ogImageUrl = new URL(avatar.src, siteUrl).href;
 const pageTitle = title ? `${title} · ${SITE_NAME}` : SITE_NAME;
 ---
 
@@ -12,6 +16,13 @@ const pageTitle = title ? `${title} · ${SITE_NAME}` : SITE_NAME;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
